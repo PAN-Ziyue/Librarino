@@ -15,12 +15,25 @@ const template = [{
         },
         {
             label: 'Log out',
-            role: 'reload'
+            role: 'reload',
+            accelerator: null
         },
         { type: 'separator' },
         {
             label: 'Close',
-            role: 'quit'
+            role: 'close',
+            // accelerator: 'CmdOrCtrl+W'
+        }
+    ]
+},{
+    label: 'View',
+    submenu:[
+        {
+            label: 'Minimize',
+            role: 'minimize'
+        },{
+            label: 'Full Screen',
+            role: 'togglefullscreen'
         }
     ]
 }]
