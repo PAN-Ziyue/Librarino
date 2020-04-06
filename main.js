@@ -45,9 +45,10 @@ const template = [{
 let win
 app.on('ready', () => {
     win = new BrowserWindow({
-        width: 800,
-        minWidth: 680,
-        height: 600,
+        width: 1200,
+        minWidth: 800,
+        height: 800,
+        minHeight: 600,
         icon: './assets/favicon/icon.png',
         webPreferences: { nodeIntegration: true }
     })
