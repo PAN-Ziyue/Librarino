@@ -1,6 +1,5 @@
 const { app, BrowserWindow } = require('electron')
 const electron = require('electron')
-const { dialog } = require('electron')
 const fs = require('fs')
 const mysql = require('mysql')
 const Menu = electron.Menu
@@ -54,8 +53,6 @@ app.on('ready', () => {
     const menu = Menu.buildFromTemplate(template)
     Menu.setApplicationMenu(menu)
 
-    mysqlConnect()
-
     win.on('closed', () => {
         win = null
     })
@@ -67,21 +64,9 @@ app.on('window-all-closed', () => {
     }
 })
 
-function mysqlConnect() {
-    var config = require('./db-config')
-    var connection = mysql.createConnection(config.db)
-    connection.connect()
-}
+// function mysqlConnect() {
+//     var config = require('./db-config')
+//     var connection = mysql.createConnection(config.db)
+//     connection.connect()
+// }
 
-
-
-
-
-
-
-// connection = mysql.createConnection({
-//     host: 'localhost',
-//     user: 'root',
-//     password: 'AlphaVake_903517',
-//     database: 'library'
-// })

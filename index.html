@@ -38,14 +38,28 @@
                 <span style="color: #1D1F20"> </span>
             </div>
 
-            <input type="submit" value="Log In" onclick="validate()"/>
+            <input type="submit" value="Log In" onclick="validate()" />
         </form>
     </div>
-    <script>
-        function validate(){
+    <script type="text/javascript">
+        function validate() {
+            var mysql = require('mysql')
+            var config = require('./db-config')
+            var connection = mysql.createConnection(config.db)
+            connection.connect()
+
             var username = document.getElementById('username').value
             var password = document.getElementById('password').value
-            
+
+            if (username && password) {
+                connection.query('SELECT * FROM admin WHERE admin_id= ? AND password = ?', [username, password], function (error, results, fields) {
+                    if (results.length > 0) {
+                        alert('Right!')
+                    } else {
+                        alert('Wrong Username or Password!')
+                    }
+                })
+            }
         }
     </script>
 </body>
