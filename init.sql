@@ -33,6 +33,7 @@ CREATE TABLE IF NOT EXISTS card
     type       CHAR(1) CHECK ( type IN ('T', 'G', 'U', 'O')),
     PRIMARY KEY (cno)
 );
+
 CREATE TABLE IF NOT EXISTS borrow
 (
     cno         CHAR(7),
@@ -45,4 +46,4 @@ CREATE TABLE IF NOT EXISTS borrow
     FOREIGN KEY (admin_id) REFERENCES admin (admin_id)
 );
 
-INSERT INTO admin VALUES('admin', 'admin', 'admin', '19957134033')
+INSERT INTO admin VALUES('admin', 'admin', 'admin', '19957134033');

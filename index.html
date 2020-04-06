@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
-<body background="./assets/background.jpg">
+<body background="./assets/img/background.jpg">
     <div id="container-login">
         <div id="title">
             <i class="material-icons lock">lock</i> Login
@@ -56,9 +56,11 @@
             if (username && password) {
                 connection.query('SELECT * FROM admin WHERE admin_id= ? AND password = ?', [username, password], function (error, results, fields) {
                     if (results.length > 0) {
-                        
+                        window.location.href='./main.html'
+                        setTimeout("javascript:location.href='./main.html'", 5000)
                     } else {
-                        alert('Wrong Password or Username!')
+                        window.location.href='./error.html'
+                        setTimeout("javascript:location.href='./error.html'", 5000)
                     }
                 })
             }

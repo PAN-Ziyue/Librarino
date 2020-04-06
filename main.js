@@ -46,7 +46,7 @@ app.on('ready', () => {
         width: 800,
         minWidth: 680,
         height: 600,
-        icon: './assets/icon.png',
+        icon: './assets/favicon/icon.png',
         webPreferences: { nodeIntegration: true }
     })
     win.loadFile('index.html')
@@ -63,3 +63,12 @@ app.on('window-all-closed', () => {
         app.quit()
     }
 })
+
+function initDB() {
+    var mysql = require('mysql')
+    var config = require('./db-config')
+    var connection = mysql.createConnection(config.db)
+    connection.connect()
+
+
+}
