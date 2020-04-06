@@ -63,10 +63,3 @@ app.on('window-all-closed', () => {
         app.quit()
     }
 })
-
-// function mysqlConnect() {
-//     var config = require('./db-config')
-//     var connection = mysql.createConnection(config.db)
-//     connection.connect()
-// }
-

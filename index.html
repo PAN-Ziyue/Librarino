@@ -41,7 +41,9 @@
             <input type="submit" value="Log In" onclick="validate()" />
         </form>
     </div>
+
     <script type="text/javascript">
+        
         function validate() {
             var mysql = require('mysql')
             var config = require('./db-config')
@@ -54,9 +56,9 @@
             if (username && password) {
                 connection.query('SELECT * FROM admin WHERE admin_id= ? AND password = ?', [username, password], function (error, results, fields) {
                     if (results.length > 0) {
-                        alert('Right!')
+                        
                     } else {
-                        alert('Wrong Username or Password!')
+                        alert('Wrong Password or Username!')
                     }
                 })
             }
