@@ -40,7 +40,6 @@ const template = [{
     ]
 }]
 
-
 app.on('ready', () => {
     mainWindow = new BrowserWindow({
         width: 800,
@@ -94,4 +93,3 @@ function Connect() {
     })
     connection.connect()
 }
-
