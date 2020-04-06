@@ -44,3 +44,5 @@ CREATE TABLE IF NOT EXISTS borrow
     FOREIGN KEY (cno) REFERENCES card (cno) ON UPDATE CASCADE,
     FOREIGN KEY (admin_id) REFERENCES admin (admin_id)
 );
+
+INSERT INTO admin VALUES('admin', 'admin', 'admin', '19957134033')
