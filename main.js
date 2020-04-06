@@ -17,8 +17,10 @@ const template = [{
         },
         {
             label: 'Log out',
-            role: 'reload',
-            accelerator: null
+            click: () => {
+                win.loadFile('index.html')
+            },
+            accelerator: 'CmdOrCtrl+R'
         },
         { type: 'separator' },
         {
@@ -69,6 +71,4 @@ function initDB() {
     var config = require('./db-config')
     var connection = mysql.createConnection(config.db)
     connection.connect()
-
-
 }
