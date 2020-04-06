@@ -1,9 +1,10 @@
 const electron = require('electron')
 const app = electron.app
 const {dialog} = require('electron')
+const fs = require('fs')
+const mysql = require('mysql')
 const BrowserWindow = electron.BrowserWindow
 const Menu = electron.Menu
-const fs = require('fs')
 const template = [{
     label: 'System',
     submenu: [
@@ -39,6 +40,7 @@ const template = [{
     ]
 }]
 
+
 app.on('ready', () => {
     mainWindow = new BrowserWindow({
         width: 800,
@@ -51,12 +53,11 @@ app.on('ready', () => {
     const menu = Menu.buildFromTemplate(template)
     Menu.setApplicationMenu(menu)
 
-    createConnection()
+    Connect()
 
     mainWindow.on('closed', () => {
         mainWindow = null
     })
-
 })
 
 app.on('window-all-closed', () => {
@@ -65,21 +66,32 @@ app.on('window-all-closed', () => {
     }
 })
 
-function createConnection() {
+function Connect() {
+    var config
     fs.readFile('./config.json', 'utf8', (err, jsonString) => {
         if (err) {
             dialog.showErrorBox('ERROR', 'Cannot Find Configuration')
             app.quit()
         }
         try {
-            const config = JSON.parse(jsonString)
-            console.log(config.host) 
+            config = JSON.parse(jsonString)
         } catch(err) {
             console.log('Error parsing configuration:', err)
         }
     })
+
+    // var connection = mysql.createConnection({
+    //     host: config.host,
+    //     user: config.user,
+    //     password: config.password,
+    //     database: config.database
+    // })
+    var connection = mysql.createConnection({
+        host: 'localhost',
+        user: 'root',
+        password: 'AlphaVake_903517',
+        database: 'library'
+    })
+    connection.connect()
 }
-
-
-
 
