@@ -55,7 +55,7 @@ app.on('ready', () => {
     win.loadFile('index.html')
     const menu = Menu.buildFromTemplate(template)
     Menu.setApplicationMenu(menu)
-
+    
     win.on('closed', () => {
         win = null
     })
