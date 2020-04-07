@@ -45,17 +45,18 @@ const template = [{
 let win
 app.on('ready', () => {
     win = new BrowserWindow({
-        width: 1200,
-        minWidth: 800,
-        height: 800,
-        minHeight: 600,
+        width: 1400,
+        minWidth: 1200,
+        height: 850,
+        minHeight: 750,
         icon: './assets/favicon/icon.png',
         webPreferences: { nodeIntegration: true }
     })
     win.loadFile('index.html')
     const menu = Menu.buildFromTemplate(template)
     Menu.setApplicationMenu(menu)
-    
+    win.openDevTools()
+
     win.on('closed', () => {
         win = null
     })

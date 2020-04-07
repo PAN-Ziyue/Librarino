@@ -6,13 +6,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Library Management System - Insert Single Book</title>
-	<link rel="stylesheet" href="../css/main.css">
+	<link rel="stylesheet" href="../css/card.css">
 	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
-
-<body background="../assets/img/main.jpg">
-
-</body>
 
 <input type="checkbox" id="check">
 <label for="check">
@@ -22,15 +18,38 @@
 <div class="sidebar">
 	<header>Admin</header>
 	<ul>
-		<li><a href="#"><i class="fas fa-book"> Insert Single Book</i></a></li>
-		<li><a href="#"><i class="fas fa-stream" onclick="window.location.href='./insert-multi.html'"> Batch Insertion</i></a></li>
-		<li><a href="#"><i class="fas fa-search"> Search Books</i></a></li>
+		<li><a href="#"><i class="fas fa-book" onclick="window.location.href='./insert.html'"> Insert Single
+					Book</i></a></li>
+		<li><a href="#"><i class="fas fa-stream" onclick="window.location.href='./insert-multi.html'"> Batch
+					Insertion</i></a></li>
+		<li><a href="#"><i class="fas fa-search" onclick="window.location.href='./search.html'"> Search Books</i></a>
+		</li>
 		<li><a href="#"><i class="fas fa-book-reader"> Borrow</i></a></li>
 		<li><a href="#"><i class="fas fa-undo"> Return</i></a></li>
 		<li><a href="#"><i class="fas fa-id-card"> Card Services</i></a></li>
-		<li><a href="#"><i class="fas fa-sign-out-alt" onclick="window.location.href='../index.html'"> Log Out</i></a></li>
+		<li><a href="#"><i class="fas fa-sign-out-alt" onclick="window.location.href='../index.html'"> Log Out</i></a>
+		</li>
 	</ul>
 </div>
+
+<body background="../assets/img/main.jpg">
+	<div class='container'>
+		<div class='window'>
+			<div class='overlay'></div>
+			<div class='content'>
+				<div class='welcome'>Register Card</div>
+				<div class='input-fields'>
+					<input type='cno' placeholder='Card ID' class='input-line full-width'></input>
+					<input type='name' placeholder='Name' class='input-line full-width'></input>
+					<input type='department' placeholder='Department' class='input-line full-width'></input>
+					<input type='department' placeholder='Department' class='input-line full-width'></input>
+				</div>
+				<div><button class='ghost-round full-width'>Create Account</button></div>
+			</div>
+		</div>
+	</div>
+
+</body>
 <section></section>
 
 </html>
