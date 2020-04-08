@@ -14,13 +14,15 @@ const template = [{
             click: () => {
                 electron.shell.openExternal('https://github.com/PAN-Ziyue/Librarino/wiki/About-Librarino')
             }
-        },
-        {
+        },{
             label: 'Log out',
             click: () => {
                 win.loadFile('index.html')
             },
             accelerator: 'CmdOrCtrl+R'
+        },{
+            label: 'Minimize',
+            role: 'minimize'
         },
         { type: 'separator' },
         {
@@ -29,26 +31,17 @@ const template = [{
             // accelerator: 'CmdOrCtrl+W'
         }
     ]
-}, {
-    label: 'View',
-    submenu: [
-        {
-            label: 'Minimize',
-            role: 'minimize'
-        }, {
-            label: 'Full Screen',
-            role: 'togglefullscreen'
-        }
-    ]
 }]
 
 let win
 app.on('ready', () => {
     win = new BrowserWindow({
-        width: 1400,
-        minWidth: 1200,
-        height: 850,
-        minHeight: 750,
+        width: 600,
+        minWidth: 600,
+        maxWidth: 600,
+        height: 800,
+        minHeight: 800,
+        maxHeight: 800,
         icon: './assets/favicon/icon.png',
         webPreferences: { nodeIntegration: true }
     })
