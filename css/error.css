@@ -1,5 +1,5 @@
 .error{
-    width: 760px;
+    width: 500px;
     height: 500px;
     position: absolute;
     top: 50%;
@@ -43,7 +43,7 @@
     z-index: 2;
     top: 0;
     left: 0;
-    width: 600px;
+    width: 500px;
     height: var(--rainbow-button-height);
     background: #CCC;
     background: linear-gradient(to right, var(--rainbow-color-1) 0%, var(--rainbow-color-2) 14%, var(--rainbow-color-3) 28%, var(--rainbow-color-4) 42%, var(--rainbow-color-5) 56%, var(--rainbow-color-6) 70%, var(--rainbow-color-7) 84%, var(--rainbow-color-1) 100%);

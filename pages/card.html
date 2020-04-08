@@ -5,51 +5,47 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Library Management System - Insert Single Book</title>
-	<link rel="stylesheet" href="../css/card.css">
-	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+	<title>Library Management System - Search</title>
+	<link rel="stylesheet" href="../css/main.css">
+	<script src="../js/awesome.js"></script>
 </head>
 
-<input type="checkbox" id="check">
-<label for="check">
-	<i class="fas fa-bars" id="btn"></i>
-	<i class="fas fa-times" id="cancel"></i>
-</label>
-<div class="sidebar">
-	<header>Admin</header>
+<nav class="sidebar-navigation">
 	<ul>
-		<li><a href="#"><i class="fas fa-book" onclick="window.location.href='./insert.html'"> Insert Single
-					Book</i></a></li>
-		<li><a href="#"><i class="fas fa-stream" onclick="window.location.href='./insert-multi.html'"> Batch
-					Insertion</i></a></li>
-		<li><a href="#"><i class="fas fa-search" onclick="window.location.href='./search.html'"> Search Books</i></a>
+		<li>
+			<i class="fas fa-book" onclick="window.location.href='./insert.html'"></i>
+			<span class="tooltip">Insert Single Book</span>
 		</li>
-		<li><a href="#"><i class="fas fa-book-reader"> Borrow</i></a></li>
-		<li><a href="#"><i class="fas fa-undo"> Return</i></a></li>
-		<li><a href="#"><i class="fas fa-id-card"> Card Services</i></a></li>
-		<li><a href="#"><i class="fas fa-sign-out-alt" onclick="window.location.href='../index.html'"> Log Out</i></a>
+		<li>
+			<i class="fas fa-stream"  onclick="window.location.href='./insert-multi.html'"></i>
+			<span class="tooltip">Insert Multiple Books</span>
+		</li>
+		<li>
+			<i class="fas fa-search" onclick="window.location.href='./search.html'"></i>
+			<span class="tooltip">Search</span>
+		</li>
+		<li>
+			<i class="fas fa-book-reader" onclick="window.location.href='./borrow.html'"></i>
+			<span class="tooltip">Borrow</span>
+		</li>
+		<li>
+			<i class="fas fa-undo" onclick="window.location.href='./return.html'"></i>
+			<span class="tooltip">Return</span>
+		</li>
+		<li class="active">
+			<i class="fas fa-id-card"></i>
+			<span class="tooltip">Card Services</span>
+		</li>
+		<li>
+			<i class="fas fa-sign-out-alt" onclick="window.location.href='../index.html'"></i>
+			<span class="tooltip">Log Out</span>
 		</li>
 	</ul>
-</div>
-
+</nav>
 <body background="../assets/img/main.jpg">
-	<div class='container'>
-		<div class='window'>
-			<div class='overlay'></div>
-			<div class='content'>
-				<div class='welcome'>Register Card</div>
-				<div class='input-fields'>
-					<input type='cno' placeholder='Card ID' class='input-line full-width'></input>
-					<input type='name' placeholder='Name' class='input-line full-width'></input>
-					<input type='department' placeholder='Department' class='input-line full-width'></input>
-					<input type='department' placeholder='Department' class='input-line full-width'></input>
-				</div>
-				<div><button class='ghost-round full-width'>Create Account</button></div>
-			</div>
-		</div>
-	</div>
-
+	<h1 id="insert" style="text-align: center; color: white; font-family: Hacked; src: url('../assets/font/Hacked.ttf');">
+		card services
+	</h1>
 </body>
-<section></section>
-
 </html>
+
