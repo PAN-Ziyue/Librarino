@@ -1,5 +1,6 @@
 const mysql = require('mysql')
-const {dialog} = require('electron').remote
+const { dialog } = require('electron').remote
+const fs = require('fs')
 
 function insertSingle() {
     var config = require('../db-config')
@@ -73,9 +74,38 @@ function insertSingle() {
     }
 }
 
+// function readFileToArr(fReadName,callback){
+//     var fRead = fs.createReadStream(fReadName);
+//     var objReadline = readline.createInterface({
+//         input:fRead
+//     });
+//     var arr = new Array();
+//     objReadline.on('line',function (line) {
+//         arr.push(line);
+//         //console.log('line:'+ line);
+//     });
+//     objReadline.on('close',function () {
+//        // console.log(arr);
+//         callback(arr);
+//     });
+// }
+
 var openCSV = document.getElementById('openCSV')
-openCSV.onclick = function(){
+openCSV.onclick = function () {
     dialog.showOpenDialog({
-        title: 'Select Your CSV File'
+        title: 'Select Your TXT File',
+        filters: [{ name: 'File', extensions: ['txt'] }]
+    }, function (files) {
+        if(files===undefined){
+            console.log("No file selected")
+        }else{
+            fs.readFile(files[0], 'uft-8', (err,data)=>{
+                if(err){
+                    alert("An error ocurred reading the file :" + err.message);
+                }else{
+                    console.log("The file content is : " + data);
+                }
+            })
+        }
     })
 }

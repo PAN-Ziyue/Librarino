@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Library Management System - Search</title>
-	<link rel="stylesheet" href="../css/main.css">
+	<link rel="stylesheet" href="../css/card.css">
 	<script src="../js/awesome.js"></script>
 </head>
 
@@ -15,10 +15,6 @@
 		<li>
 			<i class="fas fa-book" onclick="window.location.href='./insert.html'"></i>
 			<span class="tooltip">Insert Single Book</span>
-		</li>
-		<li>
-			<i class="fas fa-stream"  onclick="window.location.href='./insert-multi.html'"></i>
-			<span class="tooltip">Insert Multiple Books</span>
 		</li>
 		<li>
 			<i class="fas fa-search" onclick="window.location.href='./search.html'"></i>
@@ -42,10 +38,41 @@
 		</li>
 	</ul>
 </nav>
+
 <body background="../assets/img/main.jpg">
-	<h1 id="insert" style="text-align: center; color: white; font-family: Hacked; src: url('../assets/font/Hacked.ttf');">
+	<br>
+	<h1 id="insert"
+		style="text-align: center; color: white; font-family: Hacked; src: url('../assets/font/Hacked.ttf');">
 		card services
 	</h1>
+	<div class='container'>
+		<div class='window'>
+			<div class='overlay'></div>
+			<div class='content'>
+				<div class='input-fields'>
+					<input id="cno" type='text' placeholder='Card Number' class='input-line full-width'></input>
+					<input id="name" type='text' placeholder='Name' class='input-line full-width'></input>
+					<input id="department" type='text' placeholder='Department' class='input-line full-width'></input>
+					<br><br><h3 style="color: rgba(255, 255, 255, 0.65); font-family: roboto; font-weight: 300;">Type:</h3>
+					<div class="options">
+						<input name="option" type="radio" id="click" class="hide" checked>
+						<label for="click">T</label>
+						<input name="option" type="radio" id="touch" class="hide">
+						<label for="touch">G</label>
+						<input name="option" type="radio" id="love" class="hide">
+						<label for="love">U</label>
+						<input name="option" type="radio" id="do" class="hide">
+						<label for="do">O</label>
+					</div>
+					<br><br><br><br><div><button class='ghost-round full-width' onclick="insertSingle()">Add</button></div>
+					<br><hr/><br><br><br><br>
+					<input id="dno" type='text' placeholder='Card Number for Deletion' class='input-line full-width'></input>
+					<div><button id="delete" class='ghost-round full-width'>Delete</button></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="../js/card.js"></script>
 </body>
-</html>
 
+</html>
