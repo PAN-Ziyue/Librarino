@@ -83,9 +83,6 @@
     color: #98D7EC;
   }
   
-
-
-
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,100,500);
 body,
 html {
@@ -267,7 +264,7 @@ button:focus {
   background: linear-gradient(#8CA6DB, #B993D6);
   opacity: 0.25;
   filter: alpha(opacity=25);
-  height: 500px;
+  height: 600px;
   position: absolute;
   width: 360px;
   z-index: 1;

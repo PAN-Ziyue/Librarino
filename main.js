@@ -2,6 +2,7 @@ const { app, BrowserWindow } = require('electron')
 const electron = require('electron')
 const fs = require('fs')
 const cp = require('child_process')
+const { ipcMain, dialog } = require('electron')
 const Menu = electron.Menu
 
 
@@ -14,13 +15,13 @@ const template = [{
             click: () => {
                 electron.shell.openExternal('https://github.com/PAN-Ziyue/Librarino/wiki/About-Librarino')
             }
-        },{
+        }, {
             label: 'Log out',
             click: () => {
                 win.loadFile('index.html')
             },
             accelerator: 'CmdOrCtrl+R'
-        },{
+        }, {
             label: 'Minimize',
             role: 'minimize'
         },
@@ -65,8 +66,8 @@ app.on('window-all-closed', () => {
 function initDB() {
     var mysql = require('mysql')
     var config = require('./db-config')
-    var cmdline = "mysql --user="+config.db.user+" --password="+config.db.password+" < ./init.sql"
-    cp.exec(cmdline, function(error, stdout, stderr){
+    var cmdline = "mysql --user=" + config.db.user + " --password=" + config.db.password + " < ./init.sql"
+    cp.exec(cmdline, function (error, stdout, stderr) {
         console.log(error, stdout, stderr)
     })
 }
