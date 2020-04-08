@@ -2,6 +2,7 @@ const { app, BrowserWindow } = require('electron')
 const electron = require('electron')
 const fs = require('fs')
 const mysql = require('mysql')
+const Alert = require("electron-alert")
 const Menu = electron.Menu
 var path = require('path')
 
@@ -34,6 +35,14 @@ const template = [{
 }]
 
 let win
+let alert = new Alert();
+let swalOptions = {
+	title: "Are you sure you want to delete?",
+	text: "You won't be able to revert this!",
+	type: "warning",
+	showCancelButton: true
+};
+
 app.on('ready', () => {
     win = new BrowserWindow({
         width: 600,
@@ -48,7 +57,9 @@ app.on('ready', () => {
     win.loadFile('index.html')
     const menu = Menu.buildFromTemplate(template)
     Menu.setApplicationMenu(menu)
-    win.openDevTools()
+    // win.openDevTools()
+    // initDB()
+
 
     win.on('closed', () => {
         win = null
