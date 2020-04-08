@@ -1,10 +1,9 @@
 const { app, BrowserWindow } = require('electron')
 const electron = require('electron')
 const fs = require('fs')
-const mysql = require('mysql')
-const Alert = require("electron-alert")
+const cp = require('child_process')
 const Menu = electron.Menu
-var path = require('path')
+
 
 const template = [{
     label: 'System',
@@ -35,14 +34,6 @@ const template = [{
 }]
 
 let win
-let alert = new Alert();
-let swalOptions = {
-	title: "Are you sure you want to delete?",
-	text: "You won't be able to revert this!",
-	type: "warning",
-	showCancelButton: true
-};
-
 app.on('ready', () => {
     win = new BrowserWindow({
         width: 600,
@@ -54,12 +45,11 @@ app.on('ready', () => {
         icon: './assets/favicon/icon.png',
         webPreferences: { nodeIntegration: true }
     })
-    win.loadFile('index.html')
+    win.loadFile('./index.html')
     const menu = Menu.buildFromTemplate(template)
     Menu.setApplicationMenu(menu)
     // win.openDevTools()
-    // initDB()
-
+    initDB()
 
     win.on('closed', () => {
         win = null
@@ -75,6 +65,8 @@ app.on('window-all-closed', () => {
 function initDB() {
     var mysql = require('mysql')
     var config = require('./db-config')
-    var connection = mysql.createConnection(config.db)
-    connection.connect()
+    var cmdline = "mysql --user="+config.db.user+" --password="+config.db.password+" < ./init.sql"
+    cp.exec(cmdline, function(error, stdout, stderr){
+        console.log(error, stdout, stderr)
+    })
 }

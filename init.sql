@@ -1,5 +1,6 @@
 CREATE SCHEMA IF NOT EXISTS library
     DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+
 USE library;
 
 CREATE TABLE IF NOT EXISTS admin
@@ -46,4 +47,4 @@ CREATE TABLE IF NOT EXISTS borrow
     FOREIGN KEY (admin_id) REFERENCES admin (admin_id)
 );
 
-INSERT INTO admin VALUES('admin', 'admin', 'admin', '19957134033');
+INSERT INTO admin VALUES('admin', 'admin', 'admin', '12345678901');
