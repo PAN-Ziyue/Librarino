@@ -49,7 +49,7 @@ app.on('ready', () => {
     win.loadFile('./index.html')
     const menu = Menu.buildFromTemplate(template)
     Menu.setApplicationMenu(menu)
-    win.openDevTools()
+    // win.openDevTools()
     initDB()
 
     win.on('closed', () => {

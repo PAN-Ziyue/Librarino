@@ -2,11 +2,11 @@ const mysql = require('mysql')
 const { dialog } = require('electron').remote
 const fs = require('fs')
 
-function insertSingle() {
-    var config = require('../db-config')
-    var connection = mysql.createConnection(config.db)
-    connection.connect()
+const config = require('../db-config')
+var connection = mysql.createConnection(config.db)
+connection.connect()
 
+function insertSingle() {
     var bno = document.getElementById('bno').value
     var category = document.getElementById('category').value
     var title = document.getElementById('title').value
@@ -51,8 +51,7 @@ function insertSingle() {
                     }
                     else {
                         swal({
-                            title: "No Book Fount, Insert One",
-                            text: "Please re-check the information",
+                            title: "No Book Found, Insert One",
                             type: "success",
                             timer: 2000,
                             showConfirmButton: false
