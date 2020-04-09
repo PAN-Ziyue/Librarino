@@ -2,7 +2,7 @@
     "db": {
         "host": "localhost",
         "user": "root",
-        "password": "AlphaVake_903517",
+        "password": 
         "database": "library"
     }
 }
