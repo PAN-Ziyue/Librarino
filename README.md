@@ -8,11 +8,17 @@ This is the a library management system implemented by MySQL and Electron. So fa
 
 
 
-
-
-
-
 ## Building
 
 1. You will need Node.js & electron installed on your computer to build this app.
-2. 
+
+2. ```bash
+   $ git clone https://github.com/PAN-Ziyue/Librarino
+   ```
+
+3. Make your own revision on `db-config.json`
+
+4. ```bash
+   $ npm install
+   $ npm start
+   ```
