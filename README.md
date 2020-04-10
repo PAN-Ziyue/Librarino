@@ -2,7 +2,7 @@
 
 This is the a library management system implemented by MySQL and Electron. So far it has been tested on Win10, so I cannot guarantee some breaches on Linux & MacOS.
 
-<img src="https://github.com/PAN-Ziyue/Librarino/blob/master/assets/img/readme-img.png" width="45%" height="45%">  $bnsp                          <img src="https://github.com/PAN-Ziyue/Librarino/blob/master/assets/img/readme-img2.png" width="45%" height="45%">
+<img src="https://github.com/PAN-Ziyue/Librarino/blob/master/assets/img/readme-img.png" width="45%" height="45%">                               <img src="https://github.com/PAN-Ziyue/Librarino/blob/master/assets/img/readme-img2.png" width="45%" height="45%">
 
 ---
 
