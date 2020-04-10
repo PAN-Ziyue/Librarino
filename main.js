@@ -27,7 +27,6 @@ const template = [{
         {
             label: 'Close',
             role: 'close',
-            // accelerator: 'CmdOrCtrl+W'
         }
     ]
 }]
