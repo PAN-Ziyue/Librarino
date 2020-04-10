@@ -1,6 +1,5 @@
 CREATE SCHEMA IF NOT EXISTS library
     DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-
 USE library;
 
 CREATE TABLE IF NOT EXISTS admin
@@ -8,7 +7,7 @@ CREATE TABLE IF NOT EXISTS admin
     admin_id  CHAR(7),
     password  CHAR(32),
     name      VARCHAR(10),
-    telephone CHAR(7),
+    telephone CHAR(11),
     PRIMARY KEY (admin_id)
 );
 
@@ -41,10 +40,7 @@ CREATE TABLE IF NOT EXISTS borrow
     bno         CHAR(8),
     borrow_date DATETIME,
     return_date DATETIME,
-    admin_id    CHAR(7),
-    FOREIGN KEY (bno) REFERENCES book (bno) ON DELETE CASCADE,
-    FOREIGN KEY (cno) REFERENCES card (cno) ON UPDATE CASCADE,
-    FOREIGN KEY (admin_id) REFERENCES admin (admin_id)
+    admin_id    CHAR(7)
 );
 
 INSERT INTO admin VALUES('admin', 'admin', 'admin', '12345678901');

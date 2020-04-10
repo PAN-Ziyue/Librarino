@@ -109,7 +109,7 @@ function searchBook() {
                         rstext += '<td>' + rst[i].stock + '</td>'
                         rstext += '</tr>'
                     }
-                    rstext += '</table><center>'
+                    rstext += '</table></center>'
                     swal({
                         title: "Query Succeed",
                         text: rstext,

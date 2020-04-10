@@ -14,7 +14,7 @@ function insertCard() {
         type = document.getElementById('G').value
     } else if (document.getElementById('U').checked) {
         type = document.getElementById('U').value
-    } else {
+    } else if(document.getElementById('O').checked){
         type = document.getElementById('O').value
     }
 

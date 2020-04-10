@@ -1,3 +1,4 @@
+var admin_id
 function validate() {
     var mysql = require('mysql')
     var config = require('./db-config')
@@ -10,10 +11,11 @@ function validate() {
     if (username && password) {
         connection.query('SELECT * FROM admin WHERE admin_id= ? AND password = ?', [username, password], function (error, results, fields) {
             if (results.length > 0) {
-                window.location.href='./pages/insert.html'
+                admin_id = username
+                window.location.href = './pages/insert.html'
                 setTimeout("javascript:location.href='./pages/insert.html'", 5000)
             } else {
-                window.location.href='./pages/error.html'
+                window.location.href = './pages/error.html'
                 setTimeout("javascript:location.href='./pages/error.html'", 5000)
             }
         })
