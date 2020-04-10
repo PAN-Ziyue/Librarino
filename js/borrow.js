@@ -1,3 +1,5 @@
+const electron = require('electron')
+const ipc = electron.ipcRenderer
 const mysql = require('mysql')
 const config = require('../db-config')
 var conn = mysql.createConnection(config.db)
@@ -70,6 +72,7 @@ function queryCard() {
     }
 }
 
+
 function borrowBook(bno, cno) {
     conn.query('SELECT * FROM book WHERE bno=?', [bno], function (err, rst, fi) {
         if (rst.length < 1) {
@@ -99,23 +102,32 @@ function borrowBook(bno, cno) {
                         showConfirmButton: false
                     })
                 } else {
-                    conn.query('UPDATE book SET stock=stock-1 WHERE bno=?', [bno])
-                    conn.query('INSERT INTO borrow VALUES(?,?,NOW(),NULL,"admin")', [cno, bno], function (err, rst, fi) {
-                        if (err) {
-                            swal({
-                                title: "ERROR",
-                                text: err + '\nadmin_id:' + admin_id,
-                                type: 'error'
-                            })
-                        } else {
-                            swal({
-                                title: "Borrow Succeed",
-                                type: 'success',
-                                timer: 2000,
-                                showConfirmButton: false
-                            })
-                        }
+                    var admin_id
+                    ipc.send('query-admin-id')
+                    ipc.on('send-admin-id', function (event, arg) {
+                        admin_id = arg
+                        console.log(admin_id)
                     })
+                    setTimeout(function () {
+                        conn.query('UPDATE book SET stock=stock-1 WHERE bno=?', [bno])
+                        conn.query('INSERT INTO borrow VALUES(?,?,NOW(),NULL,?)', [cno, bno, admin_id], function (err, rst, fi) {
+                            if (err) {
+                                swal({
+                                    title: "ERROR",
+                                    text: err + '\nadmin_id:' + admin_id,
+                                    type: 'error'
+                                })
+                            } else {
+                                swal({
+                                    title: "Borrow Succeed",
+                                    text: admin_id,
+                                    type: 'success',
+                                    timer: 2000,
+                                    showConfirmButton: false
+                                })
+                            }
+                        })
+                    }, 100)
                 }
             })
         }
@@ -181,5 +193,4 @@ function operateCard() {
             showConfirmButton: false
         })
     }
-
 }

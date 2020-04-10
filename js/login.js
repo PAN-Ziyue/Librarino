@@ -1,22 +1,23 @@
-var admin_id
-function validate() {
-    var mysql = require('mysql')
-    var config = require('./db-config')
-    var connection = mysql.createConnection(config.db)
-    connection.connect()
+const mysql = require('mysql')
+const config = require('../db-config')
+const electron = require('electron')
+const ipc = electron.ipcRenderer
+var conn = mysql.createConnection(config.db)
+conn.connect()
 
+function validate() {
     var username = document.getElementById('username').value
     var password = document.getElementById('password').value
 
     if (username && password) {
-        connection.query('SELECT * FROM admin WHERE admin_id= ? AND password = ?', [username, password], function (error, results, fields) {
+        conn.query('SELECT * FROM admin WHERE admin_id= ? AND password = ?', [username, password], function (error, results, fields) {
             if (results.length > 0) {
-                admin_id = username
-                window.location.href = './pages/insert.html'
-                setTimeout("javascript:location.href='./pages/insert.html'", 5000)
+                ipc.send('save-admin-id', username)
+                window.location.href = './insert.html'
+                setTimeout("javascript:location.href='./insert.html'", 5000)
             } else {
-                window.location.href = './pages/error.html'
-                setTimeout("javascript:location.href='./pages/error.html'", 5000)
+                window.location.href = './error.html'
+                setTimeout("javascript:location.href='./error.html'", 5000)
             }
         })
     }

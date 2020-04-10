@@ -1,11 +1,9 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow} = require('electron')
 const electron = require('electron')
+const ipc = electron.ipcMain
 const fs = require('fs')
 const cp = require('child_process')
-const { ipcMain, dialog } = require('electron')
 const Menu = electron.Menu
-
-
 const template = [{
     label: 'System',
     submenu: [
@@ -18,7 +16,7 @@ const template = [{
         }, {
             label: 'Log out',
             click: () => {
-                win.loadFile('index.html')
+                win.loadFile('login.html')
             },
             accelerator: 'CmdOrCtrl+R'
         }, {
@@ -46,7 +44,7 @@ app.on('ready', () => {
         icon: './assets/favicon/icon.png',
         webPreferences: { nodeIntegration: true }
     })
-    win.loadFile('./index.html')
+    win.loadFile('./pages/login.html')
     const menu = Menu.buildFromTemplate(template)
     Menu.setApplicationMenu(menu)
     // win.openDevTools()
@@ -71,3 +69,12 @@ function initDB() {
         console.log(error, stdout, stderr)
     })
 }
+
+var admin_id_main
+ipc.on('save-admin-id', function(event, arg){
+    admin_id_main = arg
+})
+
+ipc.on('query-admin-id',function(event, arg){
+    event.sender.send('send-admin-id', admin_id_main)
+})
