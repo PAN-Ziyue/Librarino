@@ -22,3 +22,5 @@ This is the a library management system implemented by MySQL and Electron. So fa
    $ npm install
    $ npm start
    ```
+5. The initial account will be 'admin' | 'admin'
+    (See init.sql)
