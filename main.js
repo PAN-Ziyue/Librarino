@@ -16,7 +16,7 @@ const template = [{
         }, {
             label: 'Log out',
             click: () => {
-                win.loadFile('login.html')
+                win.loadFile('./pages/login.html')
             },
             accelerator: 'CmdOrCtrl+R'
         }, {

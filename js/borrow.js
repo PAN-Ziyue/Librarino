@@ -84,12 +84,24 @@ function borrowBook(bno, cno) {
                 showConfirmButton: false
             })
         } else if (rst[0].stock <= 0) {
-            swal({
-                title: "Borrow Failed",
-                text: "The stock of this book is 0",
-                type: 'error',
-                timer: 2000,
-                showConfirmButton: false
+            conn.query('SELECT return_date FROM borrow WHERE bno=? AND return_date < ALL(SELECT return_date FROM borrow WHERE bno=? AND return_date IS NOT NULL)', [bno, bno], function (err, rst, fi) {
+                if (rst.length < 1) {
+                    swal({
+                        title: "Borrow Failed",
+                        text: "The stock of this book is 0\nNo recent return record",
+                        type: 'error',
+                        timer: 2000,
+                        showConfirmButton: false
+                    })
+                } else {
+                    swal({
+                        title: "Borrow Failed",
+                        text: "The stock of this book is 0\n" + rst[0].return_date,
+                        type: 'error',
+                        timer: 2000,
+                        showConfirmButton: false
+                    })
+                }
             })
         } else {
             conn.query('SELECT * FROM borrow WHERE bno=? AND cno=? AND return_date IS NULL', [bno, cno], function (err, rst, fi) {
