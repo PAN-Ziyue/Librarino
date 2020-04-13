@@ -1,7 +1,6 @@
-const { app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 const electron = require('electron')
 const ipc = electron.ipcMain
-const fs = require('fs')
 const cp = require('child_process')
 const Menu = electron.Menu
 const template = [{
@@ -70,10 +69,10 @@ function initDB() {
 }
 
 var admin_id_main
-ipc.on('save-admin-id', function(event, arg){
+ipc.on('save-admin-id', function (event, arg) {
     admin_id_main = arg
 })
 
-ipc.on('query-admin-id',function(event, arg){
+ipc.on('query-admin-id', function (event, arg) {
     event.sender.send('send-admin-id', admin_id_main)
 })

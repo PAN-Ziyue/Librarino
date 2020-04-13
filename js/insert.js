@@ -95,8 +95,6 @@ function readFileToArr(fReadName, callback) {
 }
 
 
-
-
 var openCSV = document.getElementById('openCSV')
 openCSV.onclick = function () {
     dialog.showOpenDialog({
